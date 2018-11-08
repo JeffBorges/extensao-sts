@@ -32,6 +32,6 @@ public class AtividadeService {
   }
 
   public Page<Atividade> findByName(String nome, Pageable page) {
-    return repository.findByNomeContaining(nome, page);
+    return repository.findByNomeIgnoreCaseContaining(nome, page);
   }
 }

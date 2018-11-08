@@ -27,13 +27,13 @@ public class AtividadeRepositoryTest {
 
   @Test
   public void findByName() {
-    List<Atividade> atividades = repo.findByNomeContaining("GDG");
-    assertThat(atividades.size()).isEqualTo(1);
+    List<Atividade> atividades = repo.findByNomeIgnoreCaseContaining("gdg");
+    assertThat(atividades.size()).isGreaterThan(1);
   }
 
   @Test
   public void find() {
-    List<Atividade> atividade =  repo.findByNomeContaining("jeff");
+    List<Atividade> atividade =  repo.findByNomeIgnoreCaseContaining("jeff");
     assertThat(atividade.size()).isEqualTo(0);
   }
 }

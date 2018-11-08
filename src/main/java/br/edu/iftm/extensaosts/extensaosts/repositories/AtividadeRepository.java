@@ -11,6 +11,6 @@ import java.util.List;
 
 @Repository
 public interface AtividadeRepository extends JpaRepository<Atividade, Integer> {
-  List<Atividade> findByNomeContaining(@Param("nome") String nome);
-  Page<Atividade> findByNomeContaining(@Param("nome") String nome, Pageable page);
+  List<Atividade> findByNomeIgnoreCaseContaining(@Param("nome") String nome);
+  Page<Atividade> findByNomeIgnoreCaseContaining(@Param("nome") String nome, Pageable page);
 }
