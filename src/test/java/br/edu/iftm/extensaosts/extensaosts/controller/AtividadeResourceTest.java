@@ -39,7 +39,7 @@ public class AtividadeResourceTest {
   public void testaId() throws Exception {
     this.mvc.perform(get(uri + "{id}", 1))
             .andExpect(status().isOk())
-            .andExpect(jsonPath("nome", is("Visita Técnica GDG 2017")));
+            .andExpect(jsonPath("nome", is("Visita Tecnica GDG 2017")));
   }
 
   @Test
@@ -52,7 +52,7 @@ public class AtividadeResourceTest {
   @Test
   public void testaSave() throws Exception {
     this.mvc.perform(post(uri).contentType(MediaType.APPLICATION_JSON)
-                              .content(objectMapper.writeValueAsString(new Atividade("Visita Técnica GDG 2019"))))
+                              .content(objectMapper.writeValueAsString(new Atividade("Visita Tecnica GDG 2019"))))
             .andExpect(status().isOk())
             .andExpect(jsonPath("id", is(notNullValue())));
   }
@@ -60,7 +60,7 @@ public class AtividadeResourceTest {
   @Test
   public void testaUpdate() throws Exception {
     this.mvc.perform(put(uri + "{id}", 2).contentType(MediaType.APPLICATION_JSON)
-                                         .content(objectMapper.writeValueAsString(new Atividade(2,"Visita Técnica GDG 2019"))))
+                                         .content(objectMapper.writeValueAsString(new Atividade(2,"Visita Tecnica GDG 2019"))))
             .andExpect(status().isOk())
             .andExpect(jsonPath("id", is(notNullValue())));
   }
@@ -68,7 +68,7 @@ public class AtividadeResourceTest {
   @Test
   public void testaUpdateError() throws Exception {
     this.mvc.perform(put(uri + "{id}", 6000).contentType(MediaType.APPLICATION_JSON)
-                                            .content(objectMapper.writeValueAsString(new Atividade(2, "Visita Técnica GDG 2019"))))
+                                            .content(objectMapper.writeValueAsString(new Atividade(2, "Visita Tecnica GDG 2019"))))
             .andExpect(status().isNotFound());
   }
 
